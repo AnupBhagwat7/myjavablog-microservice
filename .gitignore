@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+/.mvn/wrapper/maven-wrapper.jar
+/customer/.mvn/wrapper/maven-wrapper.jar
+/.mvn/wrapper/maven-wrapper.properties
+/customer/.mvn/wrapper/maven-wrapper.properties
+/customer/.mvn/wrapper/maven-wrapper.jar
+/customer/.mvn/wrapper/maven-wrapper.jar

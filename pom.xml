@@ -16,7 +16,7 @@
     <description>myjavablog-microservice</description>
 
     <properties>
-        <java.version>19</java.version>
+        <java.version>8</java.version>
         <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
         <spring.boot.dependencies.version>2.5.7</spring.boot.dependencies.version>
     </properties>
