@@ -11,7 +11,7 @@ public class FraudCheckService {
 
     private FraudCheckRepository fraudCheckRepository;
 
-    public FraudCheckResponse checkFraudCustomer(Integer customerId) {
+    public boolean  checkFraudCustomer(Integer customerId) {
 
         FraudCheck fraudCheck = fraudCheckRepository.save(FraudCheck.builder()
                 .customerId(customerId)
@@ -19,7 +19,7 @@ public class FraudCheckService {
                 .created(LocalDateTime.now())
                 .build());
 
-        return FraudCheckResponse.builder().isFraudCustomer(fraudCheck.getIsFraudCustomer()).build();
+        return false;
         //TODO - Fraud check logic
     }
 }

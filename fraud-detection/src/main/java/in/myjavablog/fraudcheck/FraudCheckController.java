@@ -17,8 +17,9 @@ public class FraudCheckController {
     private FraudCheckService fraudCheckService;
 
     @GetMapping("{customerId}")
-    public ResponseEntity<FraudCheckResponse> checkFraudCustomer(@PathVariable Integer customerId){
+    public FraudCheckResponse checkFraudCustomer(@PathVariable Integer customerId) {
 
-        return ResponseEntity.ok(fraudCheckService.checkFraudCustomer(customerId));
+        boolean fraudCheckResponse = fraudCheckService.checkFraudCustomer(customerId);
+        return new FraudCheckResponse(fraudCheckResponse);
     }
 }
