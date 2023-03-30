@@ -11,6 +11,7 @@
     <modules>
         <module>customer</module>
         <module>fraud-detection</module>
+        <module>eureka-server</module>
     </modules>
 
     <name>myjavablog-microservice</name>
@@ -21,8 +22,7 @@
         <spring.boot.maven.plugin.version>3.0.5</spring.boot.maven.plugin.version>
         <spring.boot.dependencies.version>3.0.5</spring.boot.dependencies.version>
         <spring.cloud.dependencies.version>2022.0.1</spring.cloud.dependencies.version>
-
-
+        <spring.cloud.netflix.dependencies.version>4.0.1</spring.cloud.netflix.dependencies.version>
     </properties>
 
     <dependencyManagement>
@@ -34,6 +34,23 @@
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix-dependencies</artifactId>
+                <version>${spring.cloud.netflix.dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -59,6 +76,19 @@
             </plugin>
         </plugins>
         </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <skipTests>false</skipTests>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <forkMode>once</forkMode>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
