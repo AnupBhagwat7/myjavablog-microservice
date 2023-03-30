@@ -23,7 +23,7 @@ public class CustomerService {
         //Check if email is valid
         //Check if email is already taken
         customerRepository.saveAndFlush(customer);
-        restTemplate.getForObject("http://localhost:8082/api/v1/fraudcheck/{customerId}"
+        restTemplate.getForObject("http://fraudcheck/api/v1/fraudcheck/{customerId}"
                 ,FraudCheckResponse.class
                 ,customer.getId());
 
