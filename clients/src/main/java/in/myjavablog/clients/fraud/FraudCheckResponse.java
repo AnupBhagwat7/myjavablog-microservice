@@ -1,4 +1,4 @@
-package in.myjavablog.fraudcheck;
+package in.myjavablog.clients.fraud;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

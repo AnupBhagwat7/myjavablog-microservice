@@ -1,5 +1,6 @@
 package in.myjavablog.customer;
 
+import in.myjavablog.clients.fraud.FraudCheckResponse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

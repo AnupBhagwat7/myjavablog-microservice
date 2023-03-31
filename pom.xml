@@ -12,6 +12,7 @@
         <module>customer</module>
         <module>fraud-detection</module>
         <module>eureka-server</module>
+        <module>clients</module>
     </modules>
 
     <name>myjavablog-microservice</name>
@@ -46,11 +47,10 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-netflix-dependencies</artifactId>
-                <version>${spring.cloud.netflix.dependencies.version}</version>
+                <version>4.0.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -63,6 +63,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
     </dependencies>
 
