@@ -22,28 +22,51 @@ docker compose up -d
 8 - Connecting to DB
 
 9 - Fraud Microservice
+
 10 - Database Setup for Fraud
+
 11 - Fraud Controller Service and Repository
+
 12 - RestTemplate
+
 13 - Testing Microservice Communication
+
 14 - Service Discovery
+
 15 - Spring Cloud Dependency
+
 16 - Setting up Eureka Server
+
 17 - Dashboard
+
 18 - Eureka Clients
+
 19 - @LoadBalanced
+
 20 - Open Feign
+
 21 - Feign client Feign
+
 22 - Using Fegin Client
+
 23 - Microservice Communication With Feign
+
 24 - Exercise
+
 25 - Solution
+
 26 - Distributed Tracing
+
 27 - Adding Sleuth
+
 28 - Zipkin
+
 29 - Zipkin Container
+
 30 - Spring Cloud Sleuth Zipkin
+
 31 - Zipkin Dashboard
+
 32 - What are Load Balencers
 33 - Load Balancer Algorithms
 34 - Load Balancer Health Checks
