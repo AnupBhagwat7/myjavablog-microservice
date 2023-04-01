@@ -13,6 +13,7 @@
         <module>fraud-detection</module>
         <module>eureka-server</module>
         <module>clients</module>
+        <module>notifications</module>
     </modules>
 
     <name>myjavablog-microservice</name>
@@ -47,7 +48,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-netflix-dependencies</artifactId>
-                <version>4.0.1</version>
+                <version>${spring.cloud.netflix.dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
