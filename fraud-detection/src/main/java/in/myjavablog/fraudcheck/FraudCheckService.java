@@ -21,7 +21,7 @@ public class FraudCheckService {
                 .created(LocalDateTime.now())
                 .build());
 
-        log.info("Fraud check result for customer {} "+ customerId +" is {} "+ fraudCheck.getIsFraudCustomer());
+        log.info("Fraud check result for customer {} ", customerId +" is {} ", fraudCheck.getIsFraudCustomer());
         return false;
         //TODO - Fraud check logic
     }
