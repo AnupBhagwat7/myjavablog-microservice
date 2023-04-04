@@ -21,7 +21,6 @@
     <description>myjavablog-microservice</description>
 
     <properties>
-        <java.version>8</java.version>
         <spring.boot.maven.plugin.version>3.0.5</spring.boot.maven.plugin.version>
         <spring.boot.dependencies.version>3.0.5</spring.boot.dependencies.version>
         <spring.cloud.dependencies.version>2022.0.1</spring.cloud.dependencies.version>
@@ -79,6 +78,16 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
         </pluginManagement>
@@ -86,12 +95,24 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.5</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
-                    <skipTests>false</skipTests>
+                    <source>19</source>
+                    <target>19</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <forkMode>pertest</forkMode>
+                    <reuseForks>false</reuseForks>
+                    <forkCount>1</forkCount>
+                    <parallel>classes</parallel>
+                    <threadCount>10</threadCount>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <forkMode>once</forkMode>
                 </configuration>
             </plugin>
         </plugins>
