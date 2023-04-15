@@ -25,6 +25,7 @@
         <spring.boot.dependencies.version>3.0.5</spring.boot.dependencies.version>
         <spring.cloud.dependencies.version>2022.0.1</spring.cloud.dependencies.version>
         <spring.cloud.netflix.dependencies.version>4.0.1</spring.cloud.netflix.dependencies.version>
+        <image>anupbhagwat7/${project.artifactId}:${project.version}</image>
     </properties>
 
     <dependencyManagement>
@@ -87,6 +88,40 @@
                 </executions>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <from>
+                        <image>eclipse-temurin:19@sha256:81b8481b570155419ec2b057f4a367d6f0f22a5700aa01b7de7ceaa731519b1f</image>
+                        <platforms>
+                            <platform>
+                                <architecture>amd64</architecture>
+                                <os>linux</os>
+                            </platform>
+                        </platforms>
+                    </from>
+                    <to>
+                        <tags>
+                            <tag>latest</tag>
+                        </tags>
+                        <auth>
+                            <username>anupbhagwat7</username>
+                            <password>Dboi@2022</password>
+                        </auth>
+                    </to>
                 </configuration>
             </plugin>
         </plugins>
