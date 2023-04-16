@@ -1,7 +1,7 @@
 services:
   postgres:
     container_name: pgdb
-    image: postgres
+    image: postgres:14
     environment:
       POSTGRES_USER: myjavablog
       POSTGRES_PASSWORD: password
@@ -61,6 +61,51 @@ services:
     depends_on:
       - zipkin
       - eureka-server
+
+  customer:
+    image: anupbhagwat7/customer:latest
+    container_name: customer
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+
+  fraud-detection:
+    image: anupbhagwat7/fraud-detection:latest
+    container_name: fraud-detection
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
+
+  notifications:
+    image: anupbhagwat7/notifications:latest
+    container_name: notifications
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - zipkin
+      - eureka-server
+      - postgres
 
 networks:
   postgres:
