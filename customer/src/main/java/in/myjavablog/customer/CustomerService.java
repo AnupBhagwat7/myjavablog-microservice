@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,11 +23,13 @@ public class CustomerService {
     private RestTemplate restTemplate;
     //private FraudClient fraudClient;
 
-    @Autowired
     private ObjectProvider<FraudClient> fraudClient;
 
     @Autowired
     private ObjectProvider<NotificationClient> notificationClient;
+
+    @Autowired
+    private KafkaTemplate<String, NotificationRequest> kafkaTemplate;
     public Customer registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
 
         Customer customer = Customer.builder()
@@ -56,7 +59,11 @@ public class CustomerService {
                 .sentAt(LocalDateTime.now())
                 .build();
 
-        notificationClient.getObject().sendNotification(notificationRequest);
+        // Send message on topic in asynchronous manner
+        kafkaTemplate.send("notifications_topic","test", notificationRequest);
+
+        // Sending the notification through Feign client
+        // notificationClient.getObject().sendNotification(notificationRequest);
 
         return customer;
 
