@@ -1,8 +1,8 @@
 package in.myjavablog.clients.notifications;
 
 import lombok.*;
-import lombok.extern.slf4j.Slf4j;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Builder
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-public class NotificationRequest {
+public class NotificationRequest implements Serializable {
 
     private String message;
     private String sender;
